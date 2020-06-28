@@ -2,13 +2,14 @@
 //
 
 #include <iostream>
-#include <string>
 #include <Windows.h>
 #include <time.h>
 #include <math.h>
+#include <algorithm>
+
 
 //функция заполняетт рандомными числами массив с заданным размером
-void diclareArray(int *array, int length)
+void fillArray(int *array, int length)
 {
     for (int i = 0; i < length;++i)
     {
@@ -34,38 +35,18 @@ void showArray(int *array, int length, std::string arrayName)
 //считает средние геометрическое
 void srGeom(int* array, int size)
 {
-    double res = 1;
+    long double res = 1;
     for (int i = 0; i < size; i++)
     {
         res *= array[i];
     }
 
-    long double sGeo = sqrt(res);
+    
+    long double sGeo = pow(res, (double)size);
 
     std::cout << sGeo;
 
 }
-
-// функция сортирует массив
-void sort(int* array, int size)
-{
-    //взят алгоритм сортировки вставками
-    int key = 0;
-    int i = 0;
-    for (int j = 0; j < size; j++)
-    {
-
-        key = array[j];
-        i = j - 1;
-        while (i >= 0 && array[i] > key)
-        {
-            array[i + 1] = array[i];
-            i = i - 1;
-            array[i + 1] = key;
-            
-        }
-    }
- }
 
 int main()
 {
@@ -86,8 +67,8 @@ int main()
     int *C = new int[lengtC];
     
      //заполняю рандомными числами массивы
-     diclareArray(A, lengtA);
-     diclareArray(B, lengtB);
+     fillArray(A, lengtA);
+     fillArray(B, lengtB);
 
 
     showArray(A, lengtA, "A array");
@@ -106,8 +87,8 @@ int main()
  
     showArray(C, lengtC, "C array");
 
-    sort(C, lengtC);
-
+    
+    std::sort(C, C + lengtC);
     showArray(C, lengtC, "sort C array");
 
     std::cout << "Минимальное значение: " << C[0]<<"\n";

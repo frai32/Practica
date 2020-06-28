@@ -17,9 +17,7 @@ int main()
     std::string host = " ";
     std::string port = " ";
     std::string page = " ";
-   
-
-    int first = 0 ;
+  
     int last = 0;
     
     for (int i = 0; i < urls.size() ;i++)
@@ -28,8 +26,8 @@ int main()
 
         if (last > -1)
         {
-            protocol = urls[i].substr(first, last);
-            urls[i].erase(first, last + 3);          
+            protocol = urls[i].substr(0, last);
+            urls[i].erase(0, last + 3);          
         }
         else
         {
@@ -41,16 +39,16 @@ int main()
         if (last > -1)
         {
 
-            host = urls[i].substr(first, last);
-            urls[i].erase(first, last);
+            host = urls[i].substr(0, last);
+            urls[i].erase(0, last);
         }
         else
         {
             last = urls[i].find("/");
             if (last > -1)
             {
-                host = urls[i].substr(first, last);
-                urls[i].erase(first, last);             
+                host = urls[i].substr(0, last);
+                urls[i].erase(0, last);             
             }
             else
             {
@@ -62,8 +60,8 @@ int main()
 
         if (last > -1)
         {
-            port = urls[i].substr(first, last);
-            urls[i].erase(first, last);          
+            port = urls[i].substr(0, last);
+            urls[i].erase(0, last);          
         }
         else
         {

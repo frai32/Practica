@@ -34,10 +34,8 @@ int main()
         }
         fin.close();
        
-        //проверяет если в файле есть пробелы, и числа
-        if (std::regex_search(test, rx))
-        {
-            //если есть то уберает их
+      
+      
             test = std::regex_replace(test, rx, replace);
             std::cout << test;
 
@@ -54,11 +52,7 @@ int main()
 
             }
             outfile.close();
-        }
-        else
-        {
-           std:: cout << "В файле и так нет пробелов и цыфр." << std::endl;
-        }
+        
     
     } 
     return 0;

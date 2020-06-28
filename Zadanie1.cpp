@@ -18,7 +18,7 @@ std::vector<std::string> splitStrings(std::string takeString, char splitChar)
 		if (takeString[i] == splitChar)
 		{	//записываем в вектор все символы от нулевого до i-того, и присваиваем нолевому i-тое значение...
 			splitStrings.emplace_back(takeString.substr(last_index, i - last_index));
-			last_index = i;
+			last_index = i+1;
 		}
 	}
 
@@ -33,7 +33,7 @@ std::vector<std::string> splitStrings(std::string takeString, char splitChar)
 	{
 		setlocale(LC_ALL, "Rus");
 		
-		std::string allString = " ";
+		std::string allString = "_";
 		std::cout << "Введите строку\n";
 		std::getline(std::cin, allString);
 
