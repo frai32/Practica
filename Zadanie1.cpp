@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 
-
 std::vector<std::string> splitStrings(std::string takeString, char splitChar)
 {
 	std::vector<std::string> splitStrings;
@@ -26,27 +25,26 @@ std::vector<std::string> splitStrings(std::string takeString, char splitChar)
 	splitStrings.emplace_back(takeString.substr(last_index, takeString.size() - last_index));
 
 	return splitStrings;
-
 }
-	
-	int main(int argc, char** argv)
+
+int main(int argc, char** argv)
+{
+	setlocale(LC_ALL, "Rus");
+		
+	std::string allString = "_";
+	std::cout << "Введите строку\n";
+	std::getline(std::cin, allString);
+
+	char s = ' ';
+	std::cout << "введите разделитель\n";
+	std::cin >> s;
+
+	for (std::string el : splitStrings(allString, s))
 	{
-		setlocale(LC_ALL, "Rus");
-		
-		std::string allString = "_";
-		std::cout << "Введите строку\n";
-		std::getline(std::cin, allString);
-
-		char s = ' ';
-		std::cout << "введите разделитель\n";
-		std::cin >> s;
-
-		for (std::string el : splitStrings(allString, s))
-		{
-			std::cout << el <<"\n";
-		}
-		
-		return 0;
+		std::cout << el <<"\n";
 	}
+		
+	return 0;
+}
 
 
